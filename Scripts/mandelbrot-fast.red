@@ -54,11 +54,19 @@ fast-mandelbrot: routine [
 			i: mandelbrot-iter x y iterations
 			
 			pix/value: either i > iterations [FF000000h][
+<<<<<<< HEAD
 				c: 3.0 * (log-2 as float! i) / log-2 as float! (iterations - 1)
 				case [
 					c < 1.0 [FF000000h or (FFh and (as integer! 255.0 * c) << 16)]
 					c < 2.0 [FFFF0000h or (FFh and (as integer! 255.0 * (c - 1.0)) << 8)]
 					true	[FFFFFF00h or (FFh and (as integer! 255.0 * (c - 2.0)))]
+=======
+				c: 3.0 * (log-e as-float i) / log-e as-float (iterations - 1)
+				case [
+					c < 1.0 [FF000000h or (FFh and (as-integer 255.0 * c) << 16)]
+					c < 2.0 [FFFF0000h or (FFh and (as-integer 255.0 * (c - 1.0)) << 8)]
+					true	[FFFFFF00h or (FFh and (as-integer 255.0 * (c - 2.0)))]
+>>>>>>> bf1773d8959017c945c000eedb4f826c8f514a0d
 				]
 			]
 			pix: pix + 1

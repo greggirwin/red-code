@@ -6,8 +6,6 @@ Red [
 	Needs:	 View
 ]
 
-system/view/auto-sync?: no
-
 bubbles: make block! 1500
 d: [
 	pen 80.80.255.175
@@ -43,7 +41,8 @@ loop 100 [
 	append/only bubbles bbl
 ]
 
-view [
+view/no-sync [
+	title "Bubbles"
 	size 400x400
 	origin 0x0
 	canvas: base 400x400 10.10.255 draw d rate 60
@@ -53,5 +52,3 @@ view [
 	]
 
 ]
-
-system/view/auto-sync?: yes
